@@ -8,7 +8,7 @@ interface SettingsProps {
 
 export default ({ settings }: SettingsProps) => {
    return <FormRow
-      label='Example Setting'
+      label='These arent even settings lol'
       trailing={
          <FormSwitch
             value={settings.get('example', true)}
