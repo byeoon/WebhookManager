@@ -1,6 +1,6 @@
 {
    "name": "WebhookDeleter",
-   "version": "1.0.1",
+   "version": "1.0.0",
    "description": "Delete webhooks with a slash command.",
    "authors": [
       {
@@ -9,5 +9,8 @@
       }
    ],
    "color": "#00007d",
-   "sourceUrl": "https://github.com/byeoon/WebhookDeleter"
+   "sourceUrl": "https://github.com/byeoon/WebhookDeleter",
+   "changelog": [
+      "Updated the settings tab to look cleaner."
+   ]
 }
