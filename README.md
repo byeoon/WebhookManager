@@ -1,14 +1,7 @@
 <div align='center'>
-   <img src='https://repo.enmity.app/banner.png' />
-</div>
+   <h3>WebhookDeleter</h3>
 
----
-
-<div align='center'>
-   <h3>Plugin template</h3>
-
-   Template for Enmity plugins.<br />
-   Use `npm install` to install the required modules and use `npm run build` to build your plugin.
+   Lightweight plugin to delete webhooks by using a slash command.<br />
 </div>
 
 ---

@@ -16,8 +16,8 @@ const deletewebhook: Command = {
     options: [{
         name: "webhookurl",
         displayName: "url",
-        description: "Input the url of the webhook",
-        displayDescription: "Input the url of the webhook",
+        description: "Input the url of the webhook you are trying to delete",
+        displayDescription: "Input the url of the webhook you are trying to delete",
         type: ApplicationCommandOptionType.String,
         required: true
     }],
@@ -28,23 +28,20 @@ const deletewebhook: Command = {
         try 
         {
             const res = await REST.delete(webhookUrl);
-            if(res.result == 204) {
-                return {
-                    content: "Deleted webhook with result: " + res.result
-                }
+            if(res.result == true) {
+                return sendReply(message?.channel.id ?? "0", "Webhook deleted successfully.");
             }
             else
             {
-                return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. " + res.result);
+                console.log("[WebhookDeleter] Webhook deletion failed, output: " + res.result);
+                return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. Check the console for more info.");
             }    
         }
         catch
         {
-            return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook.");
+            console.log("[WebhookDeleter] Webhook deletion failed.");
+            return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. Check the console for more info.");
         }
-        
-        
-
     }
 }
 export { deletewebhook }

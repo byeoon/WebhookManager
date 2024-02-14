@@ -15,12 +15,10 @@ const WebhookDeleter: Plugin = {
       console.log("[WebhookDeleter] Hello World!");
       this.commands = [deletewebhook];
    },
-
    onStop() {
       Patcher.unpatchAll();
       this.commands = [];
    },
-
    getSettingsPanel({ settings }) {
       return <Settings settings={settings} />;
    }
