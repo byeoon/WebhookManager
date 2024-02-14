@@ -1,7 +1,7 @@
 {
    "name": "WebhookDeleter",
    "version": "1.0.0",
-   "description": "Deletes webhooks by using a command.",
+   "description": "Delete webhooks with a slash command.",
    "authors": [
       {
          "name": "byron",
