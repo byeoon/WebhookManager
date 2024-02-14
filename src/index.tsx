@@ -2,23 +2,23 @@ import { Plugin, registerPlugin } from 'enmity/managers/plugins';
 import { React } from 'enmity/metro/common';
 import { getByProps } from 'enmity/metro';
 import { create } from 'enmity/patcher';
+import { deletewebhook } from './commands/deletewebhook';
 import manifest from '../manifest.json';
-
 import Settings from './components/Settings';
 
-const Typing = getByProps('startTyping');
-const Patcher = create('silent-typing');
 
-const SilentTyping: Plugin = {
+const Patcher = create('WebhookDeleter');
+const WebhookDeleter: Plugin = {
    ...manifest,
 
    onStart() {
-      Patcher.instead(Typing, 'startTyping', () => { });
-      Patcher.instead(Typing, 'stopTyping', () => { });
+      console.log("[WebhookDeleter] Hello World!");
+      this.commands = [deletewebhook];
    },
 
    onStop() {
       Patcher.unpatchAll();
+      this.commands = [];
    },
 
    getSettingsPanel({ settings }) {
@@ -26,4 +26,4 @@ const SilentTyping: Plugin = {
    }
 };
 
-registerPlugin(SilentTyping);
+registerPlugin(WebhookDeleter);

@@ -1,11 +1,13 @@
 {
-   "name": "SilentTyping",
+   "name": "WebhookDeleter",
    "version": "1.0.0",
-   "description": "Silences your typing indicator.",
+   "description": "Deletes webhooks by using a command.",
    "authors": [
       {
-         "name": "eternal",
-         "id": "263689920210534400"
+         "name": "byron",
+         "id": "639577344276692992"
       }
-   ]
+   ],
+   "color": "#00007d",
+   "sourceUrl": "https://github.com/byeoon/WebhookDeleter"
 }

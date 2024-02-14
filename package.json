@@ -1,9 +1,9 @@
 {
-   "name": "plugin-template",
-   "description": "Template for enmity plugins.",
+   "name": "webhookdeleter",
+   "description": "Deletes webhooks by using a command.",
    "version": "1.0.0",
    "license": "GPL-3.0",
-   "author": "Zoey & eternal",
+   "author": "byron",
    "scripts": {
       "build": "rollup -c --configPlugin esbuild"
    },
