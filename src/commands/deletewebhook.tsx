@@ -5,7 +5,7 @@ import { Command, ApplicationCommandOptionType, ApplicationCommandType, Applicat
 const deletewebhook: Command = {
     id: "deletewebhook",
     name: "deletewebhook",
-    displayName: "Delete Webhook",
+    displayName: "deletewebhook",
 
     description: "deletes a webhook if given a webhook url",
     displayDescription: "Deletes a webhook.",
@@ -27,7 +27,7 @@ const deletewebhook: Command = {
 
         try 
         {
-            const res = await REST.delete(webhookUrl.value);
+            const res = await REST.delete(webhookUrl);
             if(res.result == 204) {
                 return {
                     content: "Deleted webhook with result: " + res.result
