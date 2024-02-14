@@ -25,18 +25,16 @@ const deletewebhook: Command = {
     execute: async function (args, message) {
         const webhookUrl = args[args.findIndex(i => i.name === "webhookurl")].value;
 
-        try 
-        {
+        try {
             const res = await REST.delete(webhookUrl);
             console.log("[WebhookDeleter] Webhook deletion response: " + JSON.stringify(res));
-            if(res.result == true) {
+            if (res.status == 204) {
                 return sendReply(message?.channel.id ?? "0", "Webhook deleted successfully.");
             }
-            else
-            {
-                console.log("[WebhookDeleter] Webhook deletion failed, output: " + res.result);
+            else {
+                console.log("[WebhookDeleter] Webhook deletion failed, output: " + res.status);
                 return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. Check the console for more info.");
-            }    
+            }
         }
         catch
         {
