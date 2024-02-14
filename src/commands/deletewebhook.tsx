@@ -7,7 +7,7 @@ const deletewebhook: Command = {
     name: "deletewebhook",
     displayName: "deletewebhook",
 
-    description: "deletes a webhook if given a webhook url",
+    description: "Deletes a webhook",
     displayDescription: "Deletes a webhook.",
 
     type: ApplicationCommandType.Chat,
@@ -28,6 +28,7 @@ const deletewebhook: Command = {
         try 
         {
             const res = await REST.delete(webhookUrl);
+            console.log("[WebhookDeleter] Webhook deletion response: " + res);
             if(res.result == true) {
                 return sendReply(message?.channel.id ?? "0", "Webhook deleted successfully.");
             }
