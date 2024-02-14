@@ -28,7 +28,7 @@ const deletewebhook: Command = {
         try {
             const res = await REST.delete(webhookUrl);
             console.log("[WebhookDeleter] Webhook deletion response: " + JSON.stringify(res));
-            if (res.status == 204) {
+            if (res.ok == true) {
                 return sendReply(message?.channel.id ?? "0", "Webhook deleted successfully.");
             }
             else {
