@@ -1,5 +1,5 @@
 {
-   "name": "webhookdeleter",
+   "name": "webhookmanager",
    "description": "Deletes webhooks by using a command.",
    "version": "1.0.0",
    "license": "GPL-3.0",

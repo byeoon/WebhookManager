@@ -5,23 +5,25 @@ import { create } from 'enmity/patcher';
 import { deletewebhook } from './commands/deletewebhook';
 import manifest from '../manifest.json';
 import Settings from './components/Settings';
+import { webhookinfo } from './commands/webhookinfo';
 
 
-const Patcher = create('WebhookDeleter');
-const WebhookDeleter: Plugin = {
+const Patcher = create('WebhookManager');
+const WebhookManager: Plugin = {
    ...manifest,
 
    onStart() {
-      console.log("[WebhookDeleter] Hello World!");
-      this.commands = [deletewebhook];
+      console.log("[WebhookManager] Hello World!");
+      this.commands = [deletewebhook, webhookinfo];
    },
    onStop() {
       Patcher.unpatchAll();
       this.commands = [];
    },
+   
    getSettingsPanel({ settings }) {
       return <Settings settings={settings} />;
    }
 };
 
-registerPlugin(WebhookDeleter);
+registerPlugin(WebhookManager);

@@ -42,12 +42,12 @@ export default ({ settings }: SettingsProps) => {
    return (
       <ScrollView>
          <View style={styles.title}>
-            <Text style={styles.pluginTitle}>WebhookDeleter</Text>
+            <Text style={styles.pluginTitle}>WebhookManager</Text>
             <Text style={styles.pluginAuthor}>Developed by byron</Text>
             <Text style={styles.pluginAuthor}>Version 1.0.0</Text>
             <Text style={styles.br}> </Text>
 
-            <Text style={styles.tab}>Settings (No Settings Available)</Text>
+            <Text style={styles.tab}>Settings (None Right Now)</Text>
          </View>
 
          <FormRow
