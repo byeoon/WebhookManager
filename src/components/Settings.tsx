@@ -44,7 +44,7 @@ export default ({ settings }: SettingsProps) => {
          <View style={styles.title}>
             <Text style={styles.pluginTitle}>WebhookManager</Text>
             <Text style={styles.pluginAuthor}>Developed by byron</Text>
-            <Text style={styles.pluginAuthor}>Version 1.0.0</Text>
+            <Text style={styles.pluginAuthor}>Version 1.0.1</Text>
             <Text style={styles.br}> </Text>
 
             <Text style={styles.tab}>Settings (None Right Now)</Text>

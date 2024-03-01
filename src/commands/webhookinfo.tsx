@@ -28,13 +28,9 @@ const webhookinfo: Command = {
         try {
             const res = await REST.get(webhookUrl);
             console.log("[WebhookManager] Webhook GET response: " + JSON.stringify(res));
-            if (res.ok == true) {
-                return sendReply(message?.channel.id ?? "0", "Information recieved. \n Username " + res.name + "\n Profile: https://img.discord.dog/" + res.user.id + "");
-            }
-            else {
-                console.log("[WebhookManager] Webhook GET output: " + res.status);
-                return sendReply(message?.channel.id ?? "0", "There was an error getting information on the webhook. Check the console for more info.");
-            }
+            return sendReply(message?.channel.id ?? "0", "Information recieved. \n Username " + res.name + "\n Profile: https://img.discord.dog/" + res.user.id + "");
+       //         console.log("[WebhookManager] Webhook GET output: " + res.status);
+       //         return sendReply(message?.channel.id ?? "0", "There was an error getting information on the webhook. Check the console for more info.");
         }
         catch
         {

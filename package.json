@@ -1,6 +1,6 @@
 {
    "name": "webhookmanager",
-   "description": "Deletes webhooks by using a command.",
+   "description": "Manage your webhooks easily; delete, send messages, get info and more.",
    "version": "1.0.0",
    "license": "GPL-3.0",
    "author": "byron",
