@@ -1,6 +1,6 @@
 {
    "name": "webhookmanager",
-   "description": "Manage your webhooks easily; delete, send messages, get info and more.",
+   "description": "Manage your webhooks easily; delete, send messages, get detailed info and more.",
    "version": "1.0.0",
    "license": "GPL-3.0",
    "author": "byron",

@@ -28,12 +28,20 @@ const webhookinfo: Command = {
         try {
             const res = await REST.get(webhookUrl);
             console.log("[WebhookManager] Webhook GET response: " + JSON.stringify(res));
-            return sendReply(message?.channel.id ?? "0", "Information properly recieved. \n Username " + res.name + "\n Profile: https://img.discord.dog/" + res.user.id + "");
+            return sendReply(message?.channel.id ?? "0", `
+            Information properly recieved. \n
+            Original Webhook Name: ` + res.name + `\n
+            Webhook ID: ` + res.id + `\n 
+            Webhook Channel ID: ` + res.channel_id + `\n
+            Webhook Guild ID:` + res.guild_id + `\n
+            Original Webhook Image URL: https://cdn.discordapp.com/avatars/` + res.id + `/` + res.avatar + `.png` + `\n
+            Webhook Type: ` + res.type + `\n
+            Webhook Creator's User ID: Failed to fetch. \n`);
         }
         catch (error)
         {
             console.log("[WebhookManager] Webhook GET failed: " + error);
-            return sendReply(message?.channel.id ?? "0", "There was an error getting information the webhook.");
+            return sendReply(message?.channel.id ?? "0", "There was an error getting information the webhook. Check the console for further information.");
         }
     }
 }
