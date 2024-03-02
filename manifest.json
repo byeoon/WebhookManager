@@ -1,6 +1,6 @@
 {
    "name": "WebhookManager",
-   "version": "1.0.0",
+   "version": "1.0.0.1",
    "description": "Manage your webhooks easily; delete, send messages, get info and more.",
    "authors": [
       {
@@ -11,6 +11,6 @@
    "color": "#00007d",
    "sourceUrl": "https://github.com/byeoon/WebhookManager",
    "changelog": [
-      "Initial update, no longer called WebhookDeleter."
+      "Bug fixes and better error handling"
    ]
 }

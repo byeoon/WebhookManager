@@ -7,8 +7,8 @@ const webhookinfo: Command = {
     name: "webhookinfo",
     displayName: "webhookinfo",
 
-    description: "Gets information on who created the webhook",
-    displayDescription: "Gets information on who created the webhook",
+    description: "Gets information on who created the webhook and extra details.",
+    displayDescription: "Gets information on who created the webhook and extra details.",
 
     type: ApplicationCommandType.Chat,
     inputType: ApplicationCommandInputType.BuiltInText,
@@ -16,8 +16,8 @@ const webhookinfo: Command = {
     options: [{
         name: "webhookurl",
         displayName: "url",
-        description: "Input the url of the webhook you are trying to get the info of",
-        displayDescription: "Input the url of the webhook you are trying to get the info of",
+        description: "Input the url of the webhook you are trying to retrieve info from.",
+        displayDescription: "Input the url of the webhook you are trying to retrieve info from.",
         type: ApplicationCommandOptionType.String,
         required: true
     }],
@@ -28,13 +28,11 @@ const webhookinfo: Command = {
         try {
             const res = await REST.get(webhookUrl);
             console.log("[WebhookManager] Webhook GET response: " + JSON.stringify(res));
-            return sendReply(message?.channel.id ?? "0", "Information recieved. \n Username " + res.name + "\n Profile: https://img.discord.dog/" + res.user.id + "");
-       //         console.log("[WebhookManager] Webhook GET output: " + res.status);
-       //         return sendReply(message?.channel.id ?? "0", "There was an error getting information on the webhook. Check the console for more info.");
+            return sendReply(message?.channel.id ?? "0", "Information properly recieved. \n Username " + res.name + "\n Profile: https://img.discord.dog/" + res.user.id + "");
         }
-        catch
+        catch (error)
         {
-            console.log("[WebhookManager] Webhook GET failed.");
+            console.log("[WebhookManager] Webhook GET failed: " + error);
             return sendReply(message?.channel.id ?? "0", "There was an error getting information the webhook.");
         }
     }

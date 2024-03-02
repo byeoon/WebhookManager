@@ -1,7 +1,7 @@
 <div align='center'>
    <h3>WebhookManager</h3>
 
-   Lightweight Enmity plugin to delete webhooks by using a slash command.<br />
+   Lightweight Enmity plugin to manage and modify webhooks.<br />
 </div>
 
 ## Installation
