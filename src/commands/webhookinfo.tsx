@@ -40,7 +40,7 @@ const webhookinfo: Command = {
 
             `# Webhook Creator Information: \n ` +
            `Creator User ID:` + res.user.id + ` \n
-            Creator Username:` + res.user.name + `\n 
+            Creator Username:` + res.user.username + `( <@` + res.user.id + `> ) \n 
             Creator Profile: [Click Me](https://img.discord.dog/` + res.user.id + `) \n`
             );
         })
