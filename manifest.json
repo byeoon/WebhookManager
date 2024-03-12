@@ -11,6 +11,6 @@
    "color": "#00007d",
    "sourceUrl": "https://github.com/byeoon/WebhookManager",
    "changelog": [
-      "Fixed bug where plugin would not load, fixed bug where /webhookinfo would not output anything, fixed variables to reflect the Vencord version."
+      "Fixed bug where plugin would not load, fixed bug where /webhookinfo would not output anything, fixed variables to reflect the Vencord version, added extra information on /webhookinfo."
    ]
 }
