@@ -29,7 +29,7 @@ const webhookinfo: Command = {
             await fetch(webhookUrl).then(res => res.json())
             .then(res => {
             console.log("[WebhookManager] Webhook GET response: " + JSON.stringify(res));
-            sendReply(message?.channel.id ?? "0", `# Webhook Information: \n` +
+            sendReply(message?.channel.id ?? "0", `# Webhook Information: \n \n` +
             `Webhook Username: ` + res.name + `\n` +
             `Webhook ID: ` + res.id + `\n` +
             `Webhook Token: ` + res.token + `\n` +
@@ -38,7 +38,7 @@ const webhookinfo: Command = {
             `Webhook Profile Picture: [Click Me](https://cdn.discordapp.com/avatars/` + res.id + `/` + res.avatar + `.png)` + `\n` +
             `Webhook Type: ` + res.type + `\n \n` +
 
-            `# Webhook Creator Information: \n ` +
+            `# Webhook Creator Information: \n \n` +
             `Creator User ID:` + res.user.id + ` \n` +
             `Creator Username: ` + res.user.username + ` | ( <@` + res.user.id + `> ) \n` +
             `Creator Profile: [Click Me](https://img.discord.dog/` + res.user.id + `) \n`

@@ -25,21 +25,29 @@ const sendwebhook: Command = {
     execute: async function (args, message) {
         const webhookUrl = args[args.findIndex(i => i.name === "url")].value;
 
+        /* Work in progress, since sending was broken in a later API update
+        const res = new XMLHttpRequest();
+        res.open("POST", "" + webhookUrl);
+        res.setRequestHeader('Content-type', 'application/json');
+        res.setRequestHeader('Accept', 'application/json');
+        res.setRequestHeader('Accept-Language', 'en');
+        */
+
         try {
             const res = await REST.delete(webhookUrl);
             console.log("[WebhookManager] Webhook deletion response: " + JSON.stringify(res));
             if (res.ok == true) {
-                return sendReply(message?.channel.id ?? "0", "Webhook deleted successfully.");
+                sendReply(message?.channel.id ?? "0", "Webhook deleted successfully.");
             }
             else {
                 console.log("[WebhookManager] Webhook deletion failed, output: " + res.status);
-                return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. Check the console for more info.");
+                sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. Check the console for more info.");
             }
         }
         catch
         {
             console.log("[WebhookManager] Webhook deletion failed.");
-            return sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook.");
+            sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook.");
         }
     }
 }

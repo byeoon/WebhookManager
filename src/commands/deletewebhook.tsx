@@ -39,7 +39,7 @@ const deletewebhook: Command = {
         catch
         {
             console.log("[WebhookManager] Webhook deletion failed.");
-            sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook.");
+            sendReply(message?.channel.id ?? "0", "There was an error deleting the webhook. Did you input a valid webhook URL?");
         }
     }
 }
