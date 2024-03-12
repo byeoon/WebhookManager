@@ -23,13 +23,13 @@ const webhookinfo: Command = {
     }],
 
     execute: async function (args, message) {
-        const webhookUrl = args[args.findIndex(i => i.name === "webhookurl")].value;
+        const webhookUrl = args[args.findIndex(i => i.name === "url")].value;
 
         try {
-            await fetch("" + webhookUrl).then(res => res.json())
+            await fetch(webhookUrl).then(res => res.json())
             .then(res => {
             console.log("[WebhookManager] Webhook GET response: " + JSON.stringify(res));
-            return sendReply(message?.channel.id ?? "0", `
+            sendReply(message?.channel.id ?? "0", `
             Information properly recieved. \n
             Original Webhook Name: ` + res.name + `\n
             Webhook ID: ` + res.id + `\n 
@@ -43,7 +43,7 @@ const webhookinfo: Command = {
         catch (error)
         {
             console.log("[WebhookManager] Webhook GET failed: " + error);
-            return sendReply(message?.channel.id ?? "0", "There was an error getting information the webhook. Check the console for further information.");
+            sendReply(message?.channel.id ?? "0", "There was an error getting information the webhook. Check the console for further information.");
         }
     }
 }

@@ -7,23 +7,23 @@ const deletewebhook: Command = {
     name: "deletewebhook",
     displayName: "deletewebhook",
 
-    description: "Deletes a webhook",
-    displayDescription: "Deletes a webhook.",
+    description: "Delete a webhook.",
+    displayDescription: "Delete a webhook.",
 
     type: ApplicationCommandType.Chat,
     inputType: ApplicationCommandInputType.BuiltInText,
 
     options: [{
-        name: "webhookurl",
+        name: "url",
         displayName: "url",
-        description: "Input the url of the webhook you are trying to delete",
-        displayDescription: "Input the url of the webhook you are trying to delete",
+        description: "The URL of the webhook.",
+        displayDescription: "The URL of the webhook.",
         type: ApplicationCommandOptionType.String,
         required: true
     }],
 
     execute: async function (args, message) {
-        const webhookUrl = args[args.findIndex(i => i.name === "webhookurl")].value;
+        const webhookUrl = args[args.findIndex(i => i.name === "url")].value;
 
         try {
             const res = await REST.delete(webhookUrl);
