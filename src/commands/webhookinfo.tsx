@@ -7,17 +7,17 @@ const webhookinfo: Command = {
     name: "webhookinfo",
     displayName: "webhookinfo",
 
-    description: "Gets information on who created the webhook and extra details.",
-    displayDescription: "Gets information on who created the webhook and extra details.",
+    description: "Retrieve information about a webhook.",
+    displayDescription: "Retrieve information about a webhook.",
 
     type: ApplicationCommandType.Chat,
     inputType: ApplicationCommandInputType.BuiltInText,
 
     options: [{
-        name: "webhookurl",
+        name: "url",
         displayName: "url",
-        description: "Input the url of the webhook you are trying to retrieve info from.",
-        displayDescription: "Input the url of the webhook you are trying to retrieve info from.",
+        description: "The URL of the webhook.",
+        displayDescription: "The URL of the webhook.",
         type: ApplicationCommandOptionType.String,
         required: true
     }],
@@ -26,7 +26,8 @@ const webhookinfo: Command = {
         const webhookUrl = args[args.findIndex(i => i.name === "webhookurl")].value;
 
         try {
-            const res = await REST.get(webhookUrl);
+            await fetch("" + webhookUrl).then(res => res.json())
+            .then(res => {
             console.log("[WebhookManager] Webhook GET response: " + JSON.stringify(res));
             return sendReply(message?.channel.id ?? "0", `
             Information properly recieved. \n
@@ -36,7 +37,8 @@ const webhookinfo: Command = {
             Webhook Guild ID:` + res.guild_id + `\n
             Original Webhook Image URL: https://cdn.discordapp.com/avatars/` + res.id + `/` + res.avatar + `.png` + `\n
             Webhook Type: ` + res.type + `\n
-            Webhook Creator's User ID: Failed to fetch. \n`);
+            Webhook Creator's User ID:` + res.user.id + ` \n`);
+        })
         }
         catch (error)
         {

@@ -1,7 +1,7 @@
 import { FormRow, View, ScrollView, Text, FormSwitch } from 'enmity/components'
 import { SettingsStore } from 'enmity/api/settings';
 import { Constants, React, StyleSheet } from 'enmity/metro/common'
-
+import manifest from '../../manifest.json';
 interface SettingsProps {
    settings: SettingsStore;
 }
@@ -44,15 +44,10 @@ export default ({ settings }: SettingsProps) => {
          <View style={styles.title}>
             <Text style={styles.pluginTitle}>WebhookManager</Text>
             <Text style={styles.pluginAuthor}>Developed by byron</Text>
-            <Text style={styles.pluginAuthor}>Version 1.0.2</Text>
+            <Text style={styles.pluginAuthor}>Version {manifest.version}</Text>
             <Text style={styles.br}> </Text>
-
-            <Text style={styles.tab}>Settings (None)</Text>
+            <Text style={styles.br}> </Text>
          </View>
-
-         <FormRow
-            label=''
-         />
       </ScrollView>
    )
 };

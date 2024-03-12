@@ -1,6 +1,6 @@
 {
    "name": "WebhookManager",
-   "version": "1.0.0.2",
+   "version": "1.0.0",
    "description": "Manage your webhooks easily; delete, send messages, get detailed info and more.",
    "authors": [
       {
