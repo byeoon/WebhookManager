@@ -2,6 +2,12 @@ import { FormRow, View, ScrollView, Text, FormSwitch } from 'enmity/components'
 import { SettingsStore } from 'enmity/api/settings';
 import { Constants, React, StyleSheet } from 'enmity/metro/common'
 import manifest from '../../manifest.json';
+import { getByProps } from "enmity/metro";
+import {Linking} from "enmity/metro/common"
+
+const Clipboard = getByProps("setString");
+const { default: Button } = getByProps("ButtonColors", "ButtonSizes");
+
 interface SettingsProps {
    settings: SettingsStore;
 }
@@ -47,6 +53,32 @@ export default ({ settings }: SettingsProps) => {
             <Text style={styles.pluginAuthor}>Version {manifest.version}</Text>
             <Text style={styles.br}> </Text>
             <Text style={styles.br}> </Text>
+
+            <Button
+            color={Button.Colors.BRAND}
+            text={"Copy Plugin Link"}
+            size={Button.Sizes.SMALL}
+            onPress={() => {
+            Clipboard.setString(
+               "https://raw.githubusercontent.com/byeoon/WebhookManager/main/dist/WebhookManager.js"
+            );
+        }}
+      />
+        <Text style={styles.br}> </Text>
+
+        <Button
+        color={Button.Colors.BRAND}
+        text={"Visit GitHub Repository"}
+        size={Button.Sizes.SMALL}
+        onPress={() => {
+         Linking.openURL("https://github.com/byeoon/WebhookManager");
+        }}
+      />
+        <Text style={styles.br}> </Text>
+        <Text style={styles.br}> </Text>
+
+      <Text style={styles.pluginAuthor}>Changelog: {manifest.changelog}</Text>
+
          </View>
       </ScrollView>
    )
